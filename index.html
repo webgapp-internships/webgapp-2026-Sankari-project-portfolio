@@ -6,7 +6,7 @@
 <title>Sankari Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <style>
 
 *{
@@ -30,12 +30,12 @@ body::before{
     position:fixed;
     width:400px;
     height:400px;
-    background:#1e383c;
+    background:#264348;
     border-radius:50%;
     top:-100px;
     left:-100px;
     filter:blur(150px);
-    opacity:0.4;
+    opacity: 0;
 }
 
 body::after{
@@ -43,7 +43,7 @@ body::after{
     position:fixed;
     width:350px;
     height:350px;
-    background:#5dd0c1;
+    background:#8ba761;
     border-radius:50%;
     bottom:-100px;
     right:-100px;
@@ -125,7 +125,7 @@ nav a:hover{
 }
 
 .hero p{
-    color:#cbd5e1;
+    color:#090a0b;
     margin:20px auto;
     max-width:700px;
 }
@@ -136,7 +136,7 @@ nav a:hover{
     padding:12px 30px;
     border-radius:30px;
     text-decoration:none;
-    color:white;
+    color:rgb(2, 1, 1);
     background:linear-gradient(135deg,#5cf880,#06452e);
 }
 
@@ -233,6 +233,7 @@ section{
 }
 
 .project-img{
+    
     height:180px;
     background:linear-gradient(135deg,#4be87a,#044727);
     border-radius:15px;
@@ -274,8 +275,16 @@ input,textarea{
     border:none;
     outline:none;
     border-radius:10px;
-    background:rgba(18, 8, 8, 0.08);
-    color:rgb(14, 6, 6);
+    background:rgba(1, 0, 0, 0.08);
+    color:rgb(4, 0, 0);
+    
+}
+input::placeholder{
+    color:black;
+}
+
+textarea::placeholder{
+    color:black;
 }
 
 button{
@@ -341,7 +350,7 @@ footer{
             Machine Learning, Web Development, and Data Analytics.
         </p>
 
-        <a href="#" class="btn">Download Resume</a>
+        <a href="resume.pdf" class="btn">Download Resume</a>
 
     </div>
 </section>
@@ -354,6 +363,7 @@ footer{
 
 <div class="glass profile-box">
     <img src="https://via.placeholder.com/220" alt="">
+    <i class="fa-solid fa-user" style="color: rgb(4, 8, 15);font-size:120px; "></i>
 </div>
 
 <div class="glass about-text">
@@ -427,19 +437,19 @@ footer{
 <div class="projects">
 
 <div class="glass project">
-<div class="project-img"></div>
+<div class="project-img"><i class="fa-solid fa-newspaper" style="color: rgb(2, 5, 10); font-size:80px; margin-top:50px; margin-left:200px"></i></div>
 <h3>Fake News Detection</h3>
 <p>NLP based fake news classification system.</p>
 </div>
 
 <div class="glass project">
-<div class="project-img"></div>
+<div class="project-img" ><i class="fa-solid fa-chart-line" style="color: rgb(2, 5, 10); font-size:80px; margin-top:50px; margin-left:200px"></i ></div>
 <h3>Tourist Analytics</h3>
 <p>Machine Learning based tourist behaviour prediction.</p>
 </div>
 
 <div class="glass project">
-<div class="project-img"></div>
+<div class="project-img"><i class="fa-brands fa-chrome" style="color: rgb(2, 5, 10);font-size:80px; margin-top:50px; margin-left:200px""></i></div>
 <h3>Portfolio Website</h3>
 <p>Responsive personal portfolio using HTML & CSS.</p>
 </div>
