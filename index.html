@@ -1,30 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body bgcolor="lightblue" align="center">
-    <h1>Index Page</h1>
-    <p>This is the index page for Day 1.</p>
-    <a href="page1.html">Go to Page 1</a><br>
-</body>
-<form action="page1.html" method="post" >
-    <input type="text" name="name" placeholder="Enter name"><br><br>
-    <input type="number" name="age" placeholder="Enter age"><br><br>
-    <input type="submit" value="Submit">
-</form>
-<table border="2" align="center">
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>
-        <tr>
-            <td>Sankari P</td>
-            <td>20</td>
-        </tr>
-    </table>
-</html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sankari Portfolio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#ceed07,#eab525,#312e81);
+    min-height:100vh;
+    color:rgb(21, 7, 7);
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#1e383c;
+    border-radius:50%;
+    top:-100px;
+    left:-100px;
+    filter:blur(150px);
+    opacity:0.4;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:350px;
+    height:350px;
+    background:#5dd0c1;
+    border-radius:50%;
+    bottom:-100px;
+    right:-100px;
+    filter:blur(150px);
+    opacity:0.4;
+}
+
+/* Navbar */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.05);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#061113;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:rgb(22, 9, 9);
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0c1213;
+}
+
+/* Hero */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-card{
+    width:90%;
+    max-width:900px;
+    padding:50px;
+    border-radius:25px;
+    background:rgba(15, 13, 13, 0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.15);
+}
+
+.hero img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:4px solid rgb(23, 18, 18);
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+.hero span{
+    color:#1c2628;
+}
+
+.hero p{
+    color:#cbd5e1;
+    margin:20px auto;
+    max-width:700px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#5cf880,#06452e);
+}
+
+/* Sections */
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:40px;
+}
+
+/* Glass Card */
+
+.glass{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:30px;
+}
+
+/* About */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:30px;
+}
+
+.profile-box{
+    text-align:center;
+}
+
+.profile-box img{
+    width:220px;
+    border-radius:20px;
+}
+
+.about-text{
+    line-height:1.8;
+    color:#0d0f11;
+}
+
+/* Skills */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.skill{
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-8px);
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#0e1217;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    border-radius:10px;
+    background:linear-gradient(135deg,#aef045,#05553f);
+}
+
+/* Projects */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project{
+    overflow:hidden;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+}
+
+.project-img{
+    height:180px;
+    background:linear-gradient(135deg,#4be87a,#044727);
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+/* Stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h2{
+    color:#0c522f;
+    font-size:40px;
+}
+
+/* Contact */
+
+.contact{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,textarea{
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:rgba(18, 8, 8, 0.08);
+    color:rgb(14, 6, 6);
+}
+
+button{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(135deg,#9cf53d,#053626);
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+    color:#94a3b8;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">SANKARI</div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-card">
+
+        <img src="pic.jpg" alt="Profile">
+
+        <h1>Hello, I'm <span>Sankari</span></h1>
+
+        <p>
+            AI & Data Science Student passionate about Artificial Intelligence,
+            Machine Learning, Web Development, and Data Analytics.
+        </p>
+
+        <a href="#" class="btn">Download Resume</a>
+
+    </div>
+</section>
+
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="about">
+
+<div class="glass profile-box">
+    <img src="https://via.placeholder.com/220" alt="">
+</div>
+
+<div class="glass about-text">
+    I am an Artificial Intelligence and Data Science student interested in
+    developing intelligent systems and modern web applications.
+    I enjoy working on Machine Learning, Deep Learning, NLP,
+    Data Analytics and Full Stack Development projects.
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="stats">
+
+<div class="glass stat">
+    <h2>10+</h2>
+    <p>Projects</p>
+</div>
+
+<div class="glass stat">
+    <h2>5+</h2>
+    <p>Certifications</p>
+</div>
+
+<div class="glass stat">
+    <h2>3+</h2>
+    <p>Internships</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills">
+
+<div class="glass skill">
+<h3>HTML & CSS</h3>
+<div class="progress"><span style="width:90%"></span></div>
+</div>
+
+<div class="glass skill">
+<h3>JavaScript</h3>
+<div class="progress"><span style="width:80%"></span></div>
+</div>
+
+<div class="glass skill">
+<h3>Python</h3>
+<div class="progress"><span style="width:92%"></span></div>
+</div>
+
+<div class="glass skill">
+<h3>Machine Learning</h3>
+<div class="progress"><span style="width:85%"></span></div>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="glass project">
+<div class="project-img"></div>
+<h3>Fake News Detection</h3>
+<p>NLP based fake news classification system.</p>
+</div>
+
+<div class="glass project">
+<div class="project-img"></div>
+<h3>Tourist Analytics</h3>
+<p>Machine Learning based tourist behaviour prediction.</p>
+</div>
+
+<div class="glass project">
+<div class="project-img"></div>
+<h3>Portfolio Website</h3>
+<p>Responsive personal portfolio using HTML & CSS.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact Me</h2>
+
+<div class="glass contact">
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Sankari | Glassmorphism Portfolio
+</footer>
+
+</body>
+</html>
